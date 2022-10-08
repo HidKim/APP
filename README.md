@@ -4,10 +4,10 @@ This library provides augmented permanental process (APP) implemented in Tensorf
 # Reference
 1. Hideaki Kim, Taichi Asami, and Hiroyuki Toda. "Fast Bayesian Estimation of Point Process Intensity as Function of Covariates", *Advances in Neural Information Processing Systems 35*, 2022.
 ```
-@article{kim2022fastbayesian,
-  title={Fast Bayesian Estimation of Point Process Intensity as Function of Covariates},
+@nproceedings{kim2022fastbayesian,
+  title={Fast {B}ayesian Estimation of Point Process Intensity as Function of Covariates},
   author={Kim, Hideaki and Asami, Taichi and Toda, Hiroyuki},
-  journal={Advances in Neural Information Processing Systems 35},
+  booktitle={Advances in Neural Information Processing Systems 35},
   year={2022}
 }
 ``` 
