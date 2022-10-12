@@ -19,3 +19,9 @@ pip install git+https://github.com/HidKim/APP
   year={2022}
 }
 ``` 
+
+# License
+You must follow the terms of the "SOFTWARE LICENSE AGREEMENT FOR EVALUATION." Be sure to read it.
+
+# Contact
+Hideaki Kim (dedeccokim at gmail.com)
