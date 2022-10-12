@@ -1,6 +1,14 @@
 # Python Code for Augmented Permanental Process 
 This library provides augmented permanental process (APP) implemented in Tensorflow. APP provides a scalable Bayesian framework for estimating point process intensity *as a function of covariates*, with the assumption that covariates are given at every point in the observation domain. For details, see our NeurIPS2022 paper [1].
 
+The code was tested on Python 3.7.2, Tensorflow 2.2.0, and qmcpy 1.3.
+
+# Installation
+To install latest stable version:
+```
+pip install git+https://github.com/HidKim/APP
+```
+
 # Reference
 1. Hideaki Kim, Taichi Asami, and Hiroyuki Toda. "Fast Bayesian Estimation of Point Process Intensity as Function of Covariates", *Advances in Neural Information Processing Systems 35*, 2022.
 ```
