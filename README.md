@@ -4,7 +4,7 @@ This library provides augmented permanental process (APP) implemented in Tensorf
 The code was tested on Python 3.7.2, Tensorflow 2.2.0, and qmcpy 1.3.
 
 # Installation
-To install latest stable version:
+To install latest version:
 ```
 pip install git+https://github.com/HidKim/APP
 ```
