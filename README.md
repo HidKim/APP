@@ -40,7 +40,7 @@ z = APP.predict(t, conf_int=[0.025,0.5,0.975])
 ``` 
 
 # License
-You must follow the terms of the "SOFTWARE LICENSE AGREEMENT FOR EVALUATION." Be sure to read it.
+Released under "SOFTWARE LICENSE AGREEMENT FOR EVALUATION". Be sure to read it.
 
 # Contact
 Hideaki Kim (dedeccokim at gmail.com)
