@@ -16,7 +16,8 @@ from HidKim_APP import augmented_permanental_process as APP
 ```
 Initialize APP:
 ```
-model = APP(kernel='Gaussian', eq_kernel='RFM',  eq_kernel_options={'cov_sampler':'Sobol','n_cov':2**10,'n_dp':500,'n_rfm':500})
+model = APP(kernel='Gaussian', eq_kernel='RFM',  
+            eq_kernel_options={'cov_sampler':'Sobol','n_cov':2**10,'n_dp':500,'n_rfm':500})
 ```
 Fit APP based on data:
 ```
