@@ -19,7 +19,9 @@ Initialize APP:
 model = APP(kernel='Gaussian', eq_kernel='RFM',  
             eq_kernel_options={'cov_sampler':'Sobol','n_cov':2**11,'n_dp':500,'n_rfm':500})
 ```
-Fit APP based on data:
+- `kernel`: 
+- `eq_kernel`:
+Fit APP with data:
 ```
 _ = model.fit(d_spk, obs_region, cov_fun, set_par=[], display=True)
 ```
