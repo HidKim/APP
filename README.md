@@ -9,6 +9,19 @@ To install latest version:
 pip install git+https://github.com/HidKim/APP
 ```
 
+# Basic Usage
+```
+from HidKim_APP import augmented_permanental_process as APP
+```
+aaaa
+```
+kernel = 'Gaussian'
+eq_kernel = 'RFM'
+eq_kernel_options = {'cov_sampler':'Sobol','n_cov':2**10,'n_rfm':500}
+model = APP(kernel=kernel, eq_kernel=eq_kernel,  eq_kernel_options=eq_kernel_options)
+```
+
+
 # Reference
 1. Hideaki Kim, Taichi Asami, and Hiroyuki Toda. "Fast Bayesian Estimation of Point Process Intensity as Function of Covariates", *Advances in Neural Information Processing Systems 35*, 2022.
 ```

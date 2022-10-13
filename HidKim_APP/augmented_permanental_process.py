@@ -8,7 +8,7 @@ from scipy.interpolate import griddata
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 TYP = 'float64'
-name = 'permanental_process'
+name = 'augmented_permanental_process'
 
 def chunks(l, n):
     for i in range(0, len(l), n):
