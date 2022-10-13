@@ -56,7 +56,7 @@ class augmented_permanental_process:
     
     # CONSTRUCTOR
     ##########################################################
-    def __init__(self, kernel='Gaussian', eq_kernel='Naive',
+    def __init__(self, kernel='Gaussian', eq_kernel='RFM',
                  eq_kernel_options={}):
         
         self.kernel, self.eq_kernel = kernel, eq_kernel
@@ -293,7 +293,7 @@ class augmented_permanental_process:
                 
     # PREDICT INTENSITY FUNCTION  
     ##########################################################
-    def predict(self,t,conf_int = [0.15,0.5,0.85]):
+    def predict(self,t,conf_int = [0.025,0.5,0.975]):
         t = np.array(t).astype(TYP)
         t = t[:,np.newaxis] if len(t.shape) == 1 else t
         
