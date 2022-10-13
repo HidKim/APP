@@ -21,11 +21,11 @@ model = APP(kernel='Gaussian', eq_kernel='RFM',
 ```
 Fit APP based on data:
 ```
-t = APP.fit(d_spk, obs_region, cov_fun, set_par=[], display=True)
+_ = model.fit(d_spk, obs_region, cov_fun, set_par=[], display=True)
 ```
 Predict point process intensity as function of covariates:
 ```
-z = APP.predict(t, conf_int=[0.025,0.5,0.975])
+z = model.predict(t, conf_int=[0.025,0.5,0.975])
 ```
 
 # Reference
