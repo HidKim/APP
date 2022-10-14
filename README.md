@@ -23,6 +23,12 @@ model = APP(kernel='Gaussian', eq_kernel='RFM',
   >The kernel function for Gaussian process. Only 'Gaussian' is available now.
 - `eq_kernel`:  *string, default='RFM'* <br>
   >The approach to constructing equivalent kernel. 'RFM' and 'Nystrom' are the degenerate approaches with random feature map and Nystrom method, respectively. 'Naive' is the naive approach.  
+- `eq_kernel_options`:  *dict, default={'cov_sampler':'Sobol','n_cov':2**11,'n_dp':500,'n_rfm':500}* <br>
+  >The options for constructing equivalent kernel.
+  * 'cov_sampler': The method for numerical integration. 'Sobol', 'Halton', and 'Lattice' are the quasi-Monte Carlo methods (see [qmcpy](https://pypi.org/project/qmcpy/)). 'Random' is the Monte-Carlo method.
+  * 'n_cov': Number of samples for (quasi-)Monte Carlo integration.
+  * 'n_dp': Number of data points used for the Nystrom approach to constructing equivalent kernel.
+  * 'n_rfm': Number of feature samples for the random feature map approach to constructing equivalent kernel.
   
 Fit APP with data:
 ```
