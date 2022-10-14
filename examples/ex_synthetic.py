@@ -5,7 +5,6 @@ from scipy.interpolate import LinearNDInterpolator
 from pylab import *
 
 
-
 if __name__ == "__main__":
 
     # Synthetic data used in our NeurIPS2022 paper
