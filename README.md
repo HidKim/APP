@@ -20,8 +20,9 @@ model = APP(kernel='Gaussian', eq_kernel='RFM',
             eq_kernel_options={'cov_sampler':'Sobol','n_cov':2**11,'n_dp':500,'n_rfm':500})
 ```
 - `kernel`: *string, default='Gaussian'*. <br> 
-&emsp; The kernel function for Gaussian process. Only 'Gaussian' is available now.
-- `eq_kernel`:
+  >The kernel function for Gaussian process. Only 'Gaussian' is available now.
+- `eq_kernel`:  *string, default='RFM'*. <br>
+  The approach to constructing equivalent kernel. 'RFM' and 'Nystrom' are the degenerate approaches with random feature map and Nystrom method, respectively. 'Naive' is the naive approach.  
 Fit APP with data:
 ```
 _ = model.fit(d_spk, obs_region, cov_fun, set_par=[], display=True)
