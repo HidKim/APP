@@ -20,14 +20,14 @@ if __name__ == "__main__":
     cov = linspace(0,1.0,200)[:,newaxis]
     r_true = data['f'](cov)
 
-    # Plot the estiamtion result with three sample event data
+    # Plot the estiamtion results with three sample event data
     for i, datum in enumerate(data['spk'][:3]):
         
         # Initialize hyper-parameter of Gaussian kernel function:
         # (a,b) for k(t,t') = a * exp( -(b*(t-t'))^2 )
         init_par = p_init(datum, data['obs'], fun_cov(datum))
 
-        # Make a set of hyper-parameters to examine -> set_para
+        # Make a set of hyper-parameters to examine -> set_par
         w = array([1./3, 1./2, 1.0, 2.0, 3.0])
         par0, par1 = init_par[0]*w, init_par[1]*w
         a, b = meshgrid(par0,par1)
