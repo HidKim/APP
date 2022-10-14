@@ -293,14 +293,14 @@ class augmented_permanental_process:
                 
     # PREDICT INTENSITY FUNCTION  
     ##########################################################
-    def predict(self,t,conf_int = [0.025,0.5,0.975]):
-        t = np.array(t).astype(TYP)
-        t = t[:,np.newaxis] if len(t.shape) == 1 else t
+    def predict(self,y,conf_int = [0.025,0.5,0.975]):
+        y = np.array(y).astype(TYP)
+        y = y[:,np.newaxis] if len(y.shape) == 1 else y
         
         # Reduce large memory requirement by mini-batch
         n_max = 10**7
         nn = max(1 , n_max//self.c_spk.shape[0])
-        batch_t = list(chunks(t,nn))
+        batch_t = list(chunks(y,nn))
         mean_x = 2*self.H.dot(np.array(batch_t[-1]),self.c_spk,self.est_v[:,np.newaxis])
         var_x  = self.H.compute_covariance(np.array(batch_t[-1]))
         for tt in batch_t[-2::-1]:

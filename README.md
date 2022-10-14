@@ -23,7 +23,7 @@ model = APP(kernel='Gaussian', eq_kernel='RFM',
   >The kernel function for Gaussian process. Only 'Gaussian' is available now.
 - `eq_kernel`:  *string, default='RFM'* <br>
   >The approach to constructing equivalent kernel. 'RFM' and 'Nystrom' are the degenerate approaches with random feature map and Nystrom method, respectively. 'Naive' is the naive approach.  
-- `eq_kernel_options`:  *dict, default={'cov_sampler': 'Sobol','n_cov': 2**11, 'n_dp': 500, 'n_rfm': 100}* <br>
+- `eq_kernel_options`:  *dict, default={'cov_sampler': 'Sobol', 'n_cov': 2**11, 'n_dp': 500, 'n_rfm': 100}* <br>
   >The options for constructing equivalent kernel.
   >* `'cov_sampler'`: The method for numerical integration. 'Sobol', 'Halton', and 'Lattice' are the quasi-Monte Carlo methods (see [qmcpy](https://pypi.org/project/qmcpy/)). 'Random' is the Monte-Carlo method.
   >* `'n_cov'`: Number of samples for (quasi-)Monte Carlo integration.
@@ -32,7 +32,7 @@ model = APP(kernel='Gaussian', eq_kernel='RFM',
   
 Fit APP with data:
 ```
-_ = model.fit(d_spk, obs_region, cov_fun, set_par, display=True)
+time = model.fit(d_spk, obs_region, cov_fun, set_par, display=True)
 ```
 - `d_spk`: *ndarray of shape (n_samples, dim_observation)* <br> 
   >The point event data.
@@ -44,12 +44,18 @@ _ = model.fit(d_spk, obs_region, cov_fun, set_par, display=True)
   >The set of hyper-parameters for hyper-parameter optimization. The optimization is performed by maximizing the marginal likelihood.
 - `display`:  *bool, default=True*  <br>
   >Display the summary of the data and the fitting. 
-- Return is the execution time.
+- **Return**: *float*. The execution time.
 
 Predict point process intensity as function of covariates:
 ```
-z = model.predict(t, conf_int=[0.025,0.5,0.975])
+r_est = model.predict(y, conf_int=[0.025,0.5,0.975])
 ```
+- `y`: *ndarray of shape (n_points, dim_covariate)* <br> 
+  >The points on covariate domain for evaluating intensity values.
+- `conf_int`:  *ndarray of shape (n_quantiles,), default=[.025, .5, .975]*  <br>
+  > The quantiles for predicted intenity.
+- **Return**: *ndarray of shape (n_quantiles, n_points)* <br>
+  >The predicted values of intensity at the specified points.
 
 # Reference
 1. Hideaki Kim, Taichi Asami, and Hiroyuki Toda. "Fast Bayesian Estimation of Point Process Intensity as Function of Covariates", *Advances in Neural Information Processing Systems 35*, 2022.
