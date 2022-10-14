@@ -19,7 +19,7 @@ Initialize APP:
 model = APP(kernel='Gaussian', eq_kernel='RFM',  
             eq_kernel_options={'cov_sampler':'Sobol','n_cov':2**11,'n_dp':500,'n_rfm':500})
 ```
-- `kernel`: string, default='Gaussian'. 
+- `kernel`: *string, default='Gaussian'*. <br> 
     The kernel function for Gaussian process. Only 'Gaussian' is available now.
 - `eq_kernel`:
 Fit APP with data:
