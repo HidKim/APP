@@ -26,18 +26,18 @@ model = APP(kernel='Gaussian', eq_kernel='RFM',
   
 Fit APP with data:
 ```
-_ = model.fit(d_spk, obs_region, cov_fun, set_par=[], display=True)
+_ = model.fit(d_spk, obs_region, cov_fun, set_par, display=True)
 ```
 - `d_spk`: *ndarray of shape (n_samples, dim_observation)* <br> 
   >The point event data.
 - `obs_region`:  *ndarray of shape (dim_observation, 2)*  <br>
   > The hyper-rectangular region of observation. For example, [[x0,x1],[y0,y1]] for two-dimensional region.  
 - `cov_fun`: *callable* <br> 
-  >The covariate map f(t) -> y`, where `x`  
-- `set_par`:  *ndarray of shape (dim_observation, 2)*  <br>
-  > The hyper-rectangular region of observation. For example, [[x0,x1],[y0,y1]] for two-dimensional region.  
+  >The covariate map "cov_fun(t) -> y", where t is a point in the obervation domain, and y is the covariate value at the point.  
+- `set_par`:  *ndarray of shape (dim_hyperparameter, n_candidates)*  <br>
+  >The set of hyper-parameters for hyper-parameter optimization. The optimization is performed by maximizing the marginal likelihood.
 - `display`:  *bool, default='True'*  <br>
-  > The hyper-rectangular region of observation. For example, [[x0,x1],[y0,y1]] for two-dimensional region.  
+  >Display the summary of the data and the fitting. 
 
 Predict point process intensity as function of covariates:
 ```

@@ -93,7 +93,7 @@ class augmented_permanental_process:
         
     # FIT MODEL TO DATA 
     ##########################################################
-    def fit(self, d_spk, obs_region, cov_fun, set_par=[], display=True):
+    def fit(self, d_spk, obs_region, cov_fun, set_par, display=True):
         # obs_region = [[x0,x1],[y0,y1],[z0,z1],...]
         
         self.d_spk, self.obs_region = np.array(d_spk,TYP), np.array(obs_region,TYP)
