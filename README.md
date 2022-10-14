@@ -34,10 +34,11 @@ _ = model.fit(d_spk, obs_region, cov_fun, set_par, display=True)
   > The hyper-rectangular region of observation. For example, [[x0,x1],[y0,y1]] for two-dimensional region.  
 - `cov_fun`: *callable* <br> 
   >The covariate map "cov_fun(t) -> y", where t is a point in the obervation domain, and y is the covariate value at the point.  
-- `set_par`:  *ndarray of shape (dim_hyperparameter, n_candidates)*  <br>
+- `set_par`:  *ndarray of shape (n_candidates, dim_hyperparameter)*  <br>
   >The set of hyper-parameters for hyper-parameter optimization. The optimization is performed by maximizing the marginal likelihood.
-- `display`:  *bool, default='True'*  <br>
+- `display`:  *bool, default=True*  <br>
   >Display the summary of the data and the fitting. 
+- Return is the execution time.
 
 Predict point process intensity as function of covariates:
 ```
