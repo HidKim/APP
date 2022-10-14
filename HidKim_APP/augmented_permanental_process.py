@@ -108,7 +108,7 @@ class augmented_permanental_process:
         if display:
             print("\n")
             print( "#################################################\n"
-                   +"Intensity estimation by Gaussian Cox regression\n"
+                   +"Intensity estimation by Augmented Permanental Process\n"
                    +"Kernel:      "+self.kernel+"\n"
                    +"Eq. kernel:  "+self.eq_kernel+"\n"
                    +"Cov.sampler: "+self.eq_kernel_options['cov_sampler']
