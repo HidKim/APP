@@ -19,14 +19,26 @@ Initialize APP:
 model = APP(kernel='Gaussian', eq_kernel='RFM',  
             eq_kernel_options={'cov_sampler':'Sobol','n_cov':2**11,'n_dp':500,'n_rfm':500})
 ```
-- `kernel`: *string, default='Gaussian'*. <br> 
+- `kernel`: *string, default='Gaussian'* <br> 
   >The kernel function for Gaussian process. Only 'Gaussian' is available now.
-- `eq_kernel`:  *string, default='RFM'*. <br>
-  The approach to constructing equivalent kernel. 'RFM' and 'Nystrom' are the degenerate approaches with random feature map and Nystrom method, respectively. 'Naive' is the naive approach.  
+- `eq_kernel`:  *string, default='RFM'* <br>
+  >The approach to constructing equivalent kernel. 'RFM' and 'Nystrom' are the degenerate approaches with random feature map and Nystrom method, respectively. 'Naive' is the naive approach.  
+  
 Fit APP with data:
 ```
 _ = model.fit(d_spk, obs_region, cov_fun, set_par=[], display=True)
 ```
+- `d_spk`: *ndarray of shape (n_samples, dim_observation)* <br> 
+  >The point event data.
+- `obs_region`:  *ndarray of shape (dim_observation, 2)*  <br>
+  > The hyper-rectangular region of observation. For example, [[x0,x1],[y0,y1]] for two-dimensional region.  
+- `cov_fun`: *callable* <br> 
+  >The covariate map f(t) -> y`, where `x`  
+- `set_par`:  *ndarray of shape (dim_observation, 2)*  <br>
+  > The hyper-rectangular region of observation. For example, [[x0,x1],[y0,y1]] for two-dimensional region.  
+- `display`:  *bool, default='True'*  <br>
+  > The hyper-rectangular region of observation. For example, [[x0,x1],[y0,y1]] for two-dimensional region.  
+
 Predict point process intensity as function of covariates:
 ```
 z = model.predict(t, conf_int=[0.025,0.5,0.975])
