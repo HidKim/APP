@@ -48,8 +48,7 @@ if __name__ == "__main__":
     
     # Plot the result
     imshow(reshape(r_med,(grid_size,grid_size))[::-1,:],vmin=0.002,vmax=0.015)
-    xticks([]);yticks([])
-    colorbar()
+    xticks([]);yticks([]);colorbar()
     xlabel('Elevation (120 - 160)')
     ylabel('Slope (0.0 - 0.32)')
     tight_layout()
