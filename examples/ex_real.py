@@ -45,6 +45,8 @@ if __name__ == "__main__":
     
     # Calculate median of estimated intensity function
     r_med = model.predict(cov, conf_int=[0.5])
+    
+    # Plot the result
     imshow(reshape(r_med,(grid_size,grid_size))[::-1,:],vmin=0.002,vmax=0.015)
     xticks([]);yticks([])
     colorbar()
