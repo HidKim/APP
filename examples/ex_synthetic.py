@@ -22,6 +22,11 @@ if __name__ == "__main__":
     # Plot the estiamtion results with three sample event data
     for i, datum in enumerate(data['spk'][:3]):
         
+        # Note! ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        # The following way of selecting hyper-parameter candidates was
+        # adopted in our NeurIPS2022 paper, but is not optimal way.
+        # You should select hyper-parameter candidates suitable for your situation.
+        
         # Initialize hyper-parameter of Gaussian kernel function:
         # (a,b) for k(t,t') = a * exp( -(b*(t-t'))^2 )
         init_par = p_init(datum, data['obs'], fun_cov(datum))
@@ -31,7 +36,8 @@ if __name__ == "__main__":
         par0, par1 = init_par[0]*w, init_par[1]*w
         a, b = meshgrid(par0,par1)
         set_par = c_[reshape(a,(a.size,1)),reshape(b,(b.size,1))]
-        
+        # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
         # Perform intensity estimation in APP
         model = APP(kernel='Gaussian', eq_kernel='RFM',
                     eq_kernel_options={'cov_sampler':'Sobol', 'n_cov':1500, 'n_rfm':100})

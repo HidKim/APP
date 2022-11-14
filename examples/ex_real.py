@@ -15,6 +15,11 @@ if __name__ == "__main__":
     lin = LinearNDInterpolator(data['t'], data['cov'])
     fun_cov = lambda x: lin(x)
     
+    # Note! ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    # The following way of selecting hyper-parameter candidates was 
+    # adopted in our NeurIPS2022 paper, but is not optimal way.
+    # You should select hyper-parameter candidates suitable for your situation.
+    
     # Initialize hyper-parameter of Gaussian kernel function:
     # (a,b1,b2) for k(t,t') = a * exp( -(b1*(t-t'))^2 - (b2*(t-t'))^2 )
     init_par = p_init(data['spk'], data['obs'], fun_cov(data['spk']))
@@ -24,25 +29,26 @@ if __name__ == "__main__":
     a, b = meshgrid(w,w)
     z = array([ravel(a),ravel(b),ravel(b)]).T
     set_par = z * init_par
+    # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     
     # Perform intensity estimation in APP
     model = APP(kernel='Gaussian', eq_kernel='RFM',
                 eq_kernel_options={'cov_sampler':'Sobol', 'n_cov':1500, 'n_rfm':100})
     _ = model.fit(data['spk'], data['obs'], fun_cov ,set_par)
     
-    #
-    grid_size = 100
+    # Grid points where intensity is evaluated
+    grid_size = 300
     mesh_elev = linspace(120,160,grid_size)
     mesh_slop = linspace(0,0.32,grid_size)
     mesh_cov  = meshgrid(mesh_elev,mesh_slop)
     cov = array([ravel(mesh_cov[0]),ravel(mesh_cov[1])]).T
     
-    # Calculate quantiles of estimated intensity function
+    # Calculate median of estimated intensity function
     r_med = model.predict(cov, conf_int=[0.5])
     imshow(reshape(r_med,(grid_size,grid_size))[::-1,:],vmin=0.002,vmax=0.015)
     xticks([]);yticks([])
     colorbar()
-    xlabel('Elevation')
-    ylabel('Slope')
+    xlabel('Elevation (120 - 160)')
+    ylabel('Slope (0.0 - 0.32)')
     tight_layout()
     show()
