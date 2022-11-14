@@ -34,7 +34,7 @@ if __name__ == "__main__":
     # Perform intensity estimation in APP
     model = APP(kernel='Gaussian', eq_kernel='RFM',
                 eq_kernel_options={'cov_sampler':'Sobol', 'n_cov':1500, 'n_rfm':100})
-    _ = model.fit(data['spk'], data['obs'], fun_cov ,set_par)
+    _ = model.fit(data['spk'], data['obs'], fun_cov, set_par)
     
     # Grid points where intensity is evaluated
     grid_size = 300
