@@ -98,7 +98,7 @@ class augmented_permanental_process:
         
         self.d_spk, self.obs_region = np.array(d_spk,TYP), np.array(obs_region,TYP)
         set_par = np.array(set_par,TYP)
-        dim_obs = d_spk.shape[1]
+        dim_obs = self.d_spk.shape[1]
         dim_cov = cov_fun(self.d_spk[0]).T.shape[0]
         area = np.prod(np.diff(self.obs_region))
         value_set, est_set, par_set = [], [], []
