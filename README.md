@@ -73,4 +73,4 @@ r_est = model.predict(y, conf_int=[0.025,0.5,0.975])
 Released under "SOFTWARE LICENSE AGREEMENT FOR EVALUATION". Be sure to read it.
 
 # Contact
-Feel free to contact the first author Hideaki Kim (hideaki.kin.cn@hco.ntt.co.jp).
+Feel free to contact the first author Hideaki Kim (hideaki.kin@ntt.com).
